@@ -46,7 +46,16 @@ class _AgendaListState extends State<AgendaList> {
                 final item = data[i];
                 return ListTile(
                   title: Text(item.judul),
-                  subtitle: Text(item.keterangan),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(item.keterangan),
+                      Text(
+                        'Status: ${item.status}',
+                        style: const TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                    ],
+                  ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
